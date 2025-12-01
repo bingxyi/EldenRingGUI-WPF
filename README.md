@@ -38,10 +38,11 @@ _______________
 _______________
 
 ## 🎮 Entidades do Sistema
-🗃️ Item
+#### 🗃️ Item
 
-Representa um item do jogo Elden Ring.
+> Representa um item do jogo Elden Ring.
 
+Tabela
 Campo	Tipo	Descrição
 Id	int	Identificador único
 Name	string	Nome do item
@@ -50,58 +51,72 @@ Price	int	Preço em runas
 Description	string	Descrição detalhada do item
 ItemCategoryId	int	Chave estrangeira para categoria
 ItemCategory	Category	Navegação
-🏷️ Category
 
-Categoria/classificação de itens.
+#### 🏷️ Category
+
+> Categoria/classificação de itens.
 
 Campo	Tipo	Descrição
 Id	int	Identificador
 Name	string	Nome da categoria (ex: Katana, Escudo, Feitiço)
-🚀 Como Rodar o Projeto
-🛠️ 1. Clonar o repositório
+
+____________
+
+## 🚀 Como Rodar o Projeto
+
+#### 🛠️ 1. Clonar o repositório
+```bash
 git clone https://github.com/seu-usuario/seu-repo.git
 cd seu-repo
+```
 
-🗂️ 2. Ir para o projeto da API
+#### 🗂️ 2. Ir para o projeto da API
+```bash
 cd EldenRing.Api
+```
 
-📦 3. Criar o banco de dados
+#### 📦 3. Criar o banco de dados
 
-Rodar migrations:
-
+> Rodar migrations:
+```bash
 dotnet ef database update
+```
 
-
-Se quiser recriar:
-
+> Se quiser recriar:
+```bash
 dotnet ef database drop -f
 dotnet ef database update
+```
 
-▶️ 4. Rodar a API
+#### ▶️ 4. Rodar a API
+```bash
 dotnet run
-
+```
 
 A API iniciará normalmente em:
-
+```http
 http://localhost:5067
-
-🖥️ 5. Rodar o projeto WPF
+```
+#### 🖥️ 5. Rodar o projeto WPF
 
 Em outro terminal:
-
+```bash
 cd EldenRing.Wpf
 dotnet run
+```
 
+> A GUI irá carregar automaticamente os itens e categorias da API.
 
-A GUI irá carregar automaticamente os itens e categorias da API.
+_____________
 
-🛣️ Rotas da API (Endpoints)
-📌 GET /api/Items
+## 🛣️ Rotas da API (Endpoints)
+#### 📌 GET /api/Items
 
-Retorna todos os itens.
+> Retorna todos os itens.
 
 Exemplo de resposta:
 
+```http
 [
   {
     "id": 1,
@@ -112,6 +127,7 @@ Exemplo de resposta:
     "itemCategoryId": 1
   }
 ]
+```
 
 📌 GET /api/Items/{id}
 
