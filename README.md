@@ -1,33 +1,43 @@
-🛡️ Elden Ring Items Manager — API + WPF
+# 🛡️ Elden Ring Items Manager — API + WPF
 
-Sistema completo para gerenciamento de itens do jogo Elden Ring, contendo:
+> Sistema completo para gerenciamento de itens do jogo Elden Ring, contendo:
 
 ✔ API REST em ASP.NET Core
+
 ✔ Interface desktop em WPF
+
 ✔ CRUD completo de itens e categorias
+
 ✔ Integração 100% funcional entre API ↔ WPF
 
-📌 Tecnologias Utilizadas
+___________
 
-.NET 8
+## 📌 Tecnologias Utilizadas
 
-ASP.NET Core Web API
+- .NET 9
 
-Entity Framework Core
+- ASP.NET Core Web API
 
-SQLite (ou SQL Server, dependendo do seu setup)
+- Entity Framework Core
 
-WPF (.NET 8)
+- SQLite (ou SQL Server, dependendo do seu setup)
 
-HttpClient
+- WPF (.NET 9)
 
-🧠 Arquitetura Geral
+- HttpClient
+
+_______________
+
+## 🧠 Arquitetura Geral
+```pgsql
 ┌────────────┐        HTTP/JSON        ┌────────────────────────┐
 │  WPF App   │  <------------------->  │      Elden Ring API    │
 │ (Front-End)│                         │  (ASP.NET Core + EF)   │
 └────────────┘                         └────────────────────────┘
+```
+_______________
 
-🎮 Entidades do Sistema
+## 🎮 Entidades do Sistema
 🗃️ Item
 
 Representa um item do jogo Elden Ring.
