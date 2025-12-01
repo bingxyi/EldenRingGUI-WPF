@@ -1,0 +1,99 @@
+﻿<Window x:Class="EldenRing.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Elden Ring Items Manager" Height="900" Width="1500"
+        Background="#0f0f10">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1.1*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- LISTA PRINCIPAL -->
+        <Border Grid.Column="0" CornerRadius="8" Background="#121212" Padding="12" Margin="6">
+            <StackPanel>
+                <TextBlock Text="Itens do Elden Ring" FontSize="20" FontWeight="Bold" Foreground="#E7C66A" Margin="4"/>
+
+                <DataGrid x:Name="ItemsGrid"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          Height="520"
+                          Background="#111"
+                          Margin="0,8,0,8"
+                          RowBackground="#222"
+                          AlternatingRowBackground="#333"
+                          Foreground="White">
+
+                    <DataGrid.Resources>
+                        <Style x:Key="WrapText" TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="DarkCyan"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+
+                    </DataGrid.Resources>
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="50"/>
+                        <DataGridTextColumn Header="Nome" Binding="{Binding Name}" Width="*"/>
+                        <DataGridTextColumn Header="Raridade" Binding="{Binding Rarity}" Width="120"/>
+                        <DataGridTextColumn Header="Preço (Runas)" Binding="{Binding Price}" Width="120"/>
+
+                        <!-- Categoria (já existia, permanece igual) -->
+                        <DataGridTextColumn Header="Categoria" Binding="{Binding CategoryName}" Width="150"/>
+
+                        <!-- NOVA COLUNA: Descrição -->
+                        <DataGridTextColumn Header="Descrição"
+                                            Binding="{Binding Description}"
+                                            Width="300"
+                                            ElementStyle="{StaticResource WrapText}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="BtnRefresh" Content="Atualizar" Width="100" Margin="4" Click="BtnRefresh_Click"/>
+                    <Button x:Name="BtnDelete" Content="Excluir Selecionado" Width="160" Margin="4" Click="BtnDelete_Click"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+
+        <!-- FORM DE ADIÇÃO -->
+        <Border Grid.Column="1" CornerRadius="8" Background="#121212" Padding="12" Margin="6">
+            <StackPanel>
+                <TextBlock Text="Adicionar Novo Item" FontSize="18" FontWeight="Bold" Foreground="#E7C66A" Margin="4" />
+                
+                <StackPanel Margin="4">
+                    <TextBlock Text="Nome" Foreground="White" />
+                    <TextBox x:Name="TxtName" />
+
+                    <TextBlock Text="Raridade" Foreground="White" Margin="0,8,0,0"/>
+                    <ComboBox x:Name="CmbRarity">
+                        <ComboBoxItem Content="Comum" />
+                        <ComboBoxItem Content="Raro" />
+                        <ComboBoxItem Content="Épico" />
+                        <ComboBoxItem Content="Lendária" />
+                    </ComboBox>
+
+                    <TextBlock Text="Preço (Runas)" Foreground="White" Margin="0,8,0,0"/>
+                    <TextBox x:Name="TxtPrice" />
+
+                    <TextBlock Text="Categoria" Foreground="White" Margin="0,8,0,0"/>
+                    <ComboBox x:Name="CmbCategory" DisplayMemberPath="Name" SelectedValuePath="Id" />
+
+                    <TextBlock Text="Descrição" Foreground="White" Margin="0,8,0,0"/>
+                    <TextBox x:Name="TxtDescription" Height="120" AcceptsReturn="True" TextWrapping="Wrap" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                    <Button x:Name="BtnAdd" Content="Adicionar Item" Width="120" Margin="4" Click="BtnAdd_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Window>

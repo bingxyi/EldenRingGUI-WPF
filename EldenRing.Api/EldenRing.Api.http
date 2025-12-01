@@ -1,0 +1,6 @@
+@EldenRing.Api_HostAddress = http://localhost:5067
+
+GET {{EldenRing.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
