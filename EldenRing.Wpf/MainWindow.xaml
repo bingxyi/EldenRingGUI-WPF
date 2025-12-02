@@ -43,10 +43,10 @@
                         <DataGridTextColumn Header="Raridade" Binding="{Binding Rarity}" Width="120"/>
                         <DataGridTextColumn Header="Preço (Runas)" Binding="{Binding Price}" Width="120"/>
 
-                        <!-- Categoria (já existia, permanece igual) -->
+                        <!-- Categoria -->
                         <DataGridTextColumn Header="Categoria" Binding="{Binding CategoryName}" Width="150"/>
 
-                        <!-- NOVA COLUNA: Descrição -->
+                        <!-- Descrição -->
                         <DataGridTextColumn Header="Descrição"
                                             Binding="{Binding Description}"
                                             Width="300"
@@ -62,7 +62,7 @@
             </StackPanel>
         </Border>
 
-        <!-- FORM DE ADIÇÃO -->
+        <!-- Formulário simples para adição de novos itens -->
         <Border Grid.Column="1" CornerRadius="8" Background="#121212" Padding="12" Margin="6">
             <StackPanel>
                 <TextBlock Text="Adicionar Novo Item" FontSize="18" FontWeight="Bold" Foreground="#E7C66A" Margin="4" />
