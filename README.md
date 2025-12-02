@@ -159,22 +159,22 @@ Corpo esperado:
 ___________
 
 ## 🧪 Como Testar a API
-1. Via Postman
-
+**1. Via Postman
+**
 - Importe a collection ou crie requisições GET/POST/DELETE manualmente
 
 - Configure o body como raw → JSON
 
 - URL base: http://localhost:5067/api
 
-2. Via Thunder Client (VS Code)
-
+**2. Via Thunder Client (VS Code)
+**
 - Instale a extensão
 
 - Crie requisições simples iguais ao Postman
 
-3. Via arquivos .http (Recomendado para Devs)
-
+**3. Via arquivos .http (Recomendado para Devs)
+**
 - Crie um arquivo test.http:
 
 ### Listar itens
