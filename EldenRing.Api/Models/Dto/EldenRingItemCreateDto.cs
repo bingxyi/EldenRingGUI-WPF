@@ -2,8 +2,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EldenRing.Api.Models.Dto
 {
+    // Utilizo este DTO para transferir dados na criação e atualização de itens
     public class EldenRingItemCreateDto
     {
+        // Aplico validações para garantir a integridade dos dados recebidos
         [Required]
         [MaxLength(120)]
         public string Name {get; set; } = null!;
