@@ -179,7 +179,6 @@ namespace EldenRing.Wpf
         public int Price { get; set; }
         public string? Description { get; set; }
 
-        // IMPORTANTE: sua API devolve "itemCategoryId"
         public int ItemCategoryId { get; set; }
     }
 
