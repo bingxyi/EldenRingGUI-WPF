@@ -3,17 +3,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EldenRing.Api.Data
 {
+    // Represento o contexto do banco de dados para o Entity Framework Core
     public class EldenRingContext : DbContext
     {
         public EldenRingContext(DbContextOptions<EldenRingContext> options) : base(options) { }
 
+        // Mapeio as tabelas do banco de dados para objetos C#
         public DbSet<ItemCategory> ItemCategories { get; set; } = null!;
         public DbSet<EldenRingItem> EldenRingItems { get; set; } = null!;
 
+        // Configuro o modelo de dados e insiro dados iniciais (seeding) ao criar o banco
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+            // Populo a tabela de categorias com dados iniciais
             modelBuilder.Entity<ItemCategory>().HasData(
                 new ItemCategory { Id = 1, Name = "Armas" },
                 new ItemCategory { Id = 2, Name = "Consumíveis" },
@@ -21,6 +25,7 @@ namespace EldenRing.Api.Data
                 new ItemCategory { Id = 4, Name = "Invocações/Spirit Ashes" }
             );
 
+            // Populo a tabela de itens com uma lista predefinida
             modelBuilder.Entity<EldenRingItem>().HasData(
                 new EldenRingItem {
                     Id = 1,
