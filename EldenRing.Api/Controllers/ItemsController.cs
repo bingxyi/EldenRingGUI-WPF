@@ -46,7 +46,6 @@ namespace EldenRing.Api.Controllers
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            // check category exists
             var category = await _context.ItemCategories.FindAsync(dto.ItemCategoryId);
             if (category == null) return UnprocessableEntity(new { message = "Categoria não encontrada." });
 
@@ -62,7 +61,6 @@ namespace EldenRing.Api.Controllers
             _context.EldenRingItems.Add(item);
             await _context.SaveChangesAsync();
 
-            // Return created with location header
             return CreatedAtAction(nameof(GetById), new { id = item.Id }, item);
         }
 
