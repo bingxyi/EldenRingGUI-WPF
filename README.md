@@ -129,15 +129,16 @@ Exemplo de resposta:
 ]
 ```
 
-📌 GET /api/Items/{id}
+#### 📌 GET /api/Items/{id}
 
-Retorna um item específico.
+> Retorna um item específico.
 
-📌 POST /api/Items
+#### 📌 POST /api/Items
 
-Cria um novo item.
+> Cria um novo item.
 
 Corpo esperado:
+```http
 {
   "name": "Rivers of Blood",
   "rarity": "Lendária",
@@ -145,41 +146,44 @@ Corpo esperado:
   "description": "Katana infernal...",
   "itemCategoryId": 1
 }
+```
 
-📌 DELETE /api/Items/{id}
+#### 📌 DELETE /api/Items/{id}
 
-Remove um item pelo ID.
+> Remove um item pelo ID.
 
-📌 GET /api/Categories
+#### 📌 GET /api/Categories
 
-Lista todas as categorias.
+> Lista todas as categorias.
 
-🧪 Como Testar a API
-✔️ 1. Via Postman
+___________
 
-Importe a collection ou crie requisições GET/POST/DELETE manualmente
+## 🧪 Como Testar a API
+1. Via Postman
 
-Configure o body como raw → JSON
+- Importe a collection ou crie requisições GET/POST/DELETE manualmente
 
-URL base: http://localhost:5067/api
+- Configure o body como raw → JSON
 
-✔️ 2. Via Thunder Client (VS Code)
+- URL base: http://localhost:5067/api
 
-Instale a extensão
+2. Via Thunder Client (VS Code)
 
-Crie requisições simples iguais ao Postman
+- Instale a extensão
 
-✔️ 3. Via arquivos .http (Recomendado para Devs)
+- Crie requisições simples iguais ao Postman
 
-Crie um arquivo test.http:
+3. Via arquivos .http (Recomendado para Devs)
+
+- Crie um arquivo test.http:
 
 ### Listar itens
 GET http://localhost:5067/api/Items
 
 ### Criar item
 POST http://localhost:5067/api/Items
-Content-Type: application/json
-
+```Content-Type: application/json```
+```http
 {
   "name": "Dragon Slayer",
   "rarity": "Épico",
@@ -187,20 +191,28 @@ Content-Type: application/json
   "description": "Espada forjada em chamas dracônicas.",
   "itemCategoryId": 2
 }
+```
 
 ### Deletar item
 DELETE http://localhost:5067/api/Items/1
 
 
-No VS Code, clique em Send Request.
+> No VS Code, clique em Send Request.
 
-🖼️ Interface WPF
+____________
+
+## 🖼️ Interface WPF
 
 A aplicação exibe:
 
 ✔ Lista de itens
+
 ✔ Categoria resolvida automaticamente
+
 ✔ Descrição com quebra de linha
+
 ✔ Botão de refresh
+
 ✔ Botão de excluir
+
 ✔ Formulário para adicionar novos itens
