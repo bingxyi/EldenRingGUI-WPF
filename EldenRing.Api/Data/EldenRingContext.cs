@@ -14,7 +14,6 @@ namespace EldenRing.Api.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Seed categories (IDs fixed)
             modelBuilder.Entity<ItemCategory>().HasData(
                 new ItemCategory { Id = 1, Name = "Armas" },
                 new ItemCategory { Id = 2, Name = "Consumíveis" },
@@ -22,7 +21,6 @@ namespace EldenRing.Api.Data
                 new ItemCategory { Id = 4, Name = "Invocações/Spirit Ashes" }
             );
 
-            // Seed items (IDs fixed) - 18 itens icônicos
             modelBuilder.Entity<EldenRingItem>().HasData(
                 new EldenRingItem {
                     Id = 1,
